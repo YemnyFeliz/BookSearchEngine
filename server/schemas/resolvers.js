@@ -22,7 +22,7 @@ const resolvers = {
                 throw new Error('Incorrect password');
             }
             const token = signToken(user); //JWT token
-            return { token, User }; //if email and passwords are correct return token and user
+            return { token, user }; //if email and passwords are correct return token and user
         },
         addUser: async (parent, { username, email, password }) => {
             const user = await User.create({ username, email, password }); //create user

@@ -44,6 +44,7 @@ const LoginForm = () => {
 
     } catch (err) {
       console.error(err);
+      console.log(err.message);
     }
 
     setUserFormData({
