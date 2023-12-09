@@ -6,9 +6,10 @@ import {
   ApolloProvider,
   createHttpLink,
 } from '@apollo/client';
+import { setContext } from "@apollo/client/link/context";
 import Navbar from './components/Navbar';
 
-const httpLink = createHttpLink({ uri: '/graphql'}); //link for Apollo Client
+const httpLink = createHttpLink({ uri: 'http://localhost:3001/graphql'}); //link for Apollo Client
 
 //authentication link to attach token to request headers
 const authLink = setContext((_, { headers }) => {
@@ -16,7 +17,7 @@ const authLink = setContext((_, { headers }) => {
   return {
     headers: {
       ...headers,
-      authorization: token ? `Bearer: ${token}` : '',
+      authorization: token ? `Bearer: ${token}` : "",
     },
   };
 });

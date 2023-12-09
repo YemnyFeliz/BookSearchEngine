@@ -21,6 +21,11 @@ const LoginForm = () => {
     }
   }, [error]);
 
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setUserFormData({ ...userFormData, [name]: value });
+  };
+
  
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -51,7 +56,9 @@ const LoginForm = () => {
   return (
     <>
       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
-        <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
+        <Alert dismissible 
+        onClose={() => setShowAlert(false)} 
+        show={showAlert} variant='danger'>
           Something went wrong with your login credentials!
         </Alert>
         <Form.Group className='mb-3'>
